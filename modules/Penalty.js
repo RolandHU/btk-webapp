@@ -6,18 +6,20 @@ export default function Penalty({ data }) {
     const [ state, setState ] = useState(false)
 
     return (
-        <div className={`${styles.penalty} ${state ? styles.open : ''}`} onClick={() => setState(!state)}>
+        <div className={`${styles.penalty} ${state ? styles.open : ''}`}>
             <div>
-                <div>
-                    <h2>{data.Name}</h2>
-                </div>
-                <div>
-                    <p>{data.ID}</p>
+                <div onClick={() => setState(!state)}>
+                    <div>
+                        <h2>{data.Name}</h2>
+                    </div>
+                    <div>
+                        <p>{data.ID}</p>
+                    </div>
                 </div>
                 <button>+</button>
                 <button>-</button>
             </div>
-            <PenaltyInfo data={data} />
+            <PenaltyInfo data={data} state={state} setState={setState} />
         </div>
     )
 }

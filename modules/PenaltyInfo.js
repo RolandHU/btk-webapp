@@ -1,10 +1,10 @@
 import styles from '../styles/Penalty.module.css'
 
-export default function PenaltyInfo({ data }) {
+export default function PenaltyInfo({ data, state, setState }) {
     const formatter = Intl.NumberFormat('en', { notation: 'compact' })
 
     return (
-        <div className={styles.penalty__info}>
+        <div className={styles.penalty__info} onClick={() => setState(!state)}>
             <div>
                 <p>{data.Desc}</p>
             </div>

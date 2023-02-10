@@ -5,18 +5,20 @@ import { v4 as uuid4 } from 'uuid'
 import { useState } from 'react'
 import PenaltyCollection from '../modules/PenaltyCollection'
 import Penalty from '../modules/Penalty'
+import styles from '../styles/Penalty.module.css'
 
 export default function Home({ data }) {
     return (
         <>
             <h1>Hello World!</h1>
-            {Object.keys(data).map(c => <PenaltyCollection key={uuid4()} title={c} data={data[c]} />)}
+            <div className={styles.main}>
+                {Object.keys(data).map(c => <PenaltyCollection key={uuid4()} title={c} data={data[c]} />)}
+            </div>
         </>
     )
 }
 
 export async function getStaticProps() {
-    //../BTK.json
     const file = JSON.parse(fs.readFileSync(path.join(__dirname + '../../../../BTK.json')))
     let data = {}
 
