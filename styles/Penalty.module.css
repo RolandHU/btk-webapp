@@ -4,6 +4,11 @@
     gap: 20px;
 }
 
+.penalty__main {
+    width: min(1200px, 85vw);
+    margin: auto;
+}
+
 .penalty {
     border: 1px solid black;
 }
@@ -14,4 +19,12 @@
 
 .penalty.open > .penalty__info {
     display: block;
+}
+
+.penalty__header {
+    border-bottom: 1px solid black;
+}
+
+.penalty__padding {
+    padding-inline: 30px;
 }

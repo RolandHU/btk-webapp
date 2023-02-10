@@ -10,7 +10,6 @@ import styles from '../styles/Penalty.module.css'
 export default function Home({ data }) {
     return (
         <>
-            <h1>Hello World!</h1>
             <div className={styles.main}>
                 {Object.keys(data).map(c => <PenaltyCollection key={uuid4()} title={c} data={data[c]} />)}
             </div>
@@ -24,7 +23,7 @@ export async function getStaticProps() {
 
     file.map(o => {
         if (Object.keys(data).includes(o.Category)) return data[o.Category].push(o)
-        return data[o.Category] = []
+        return data[o.Category] = [o]
     })
 
     return {

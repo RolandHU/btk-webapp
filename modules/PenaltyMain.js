@@ -9,10 +9,10 @@ export default function PenaltyMain({ main, data }) {
 
     return (
         <div className={`${styles.penalty} ${state ? styles.open : ''}`}>
-            <div onClick={() => setState(!state)}>
+            <div className={styles.penalty__header} onClick={() => setState(!state)}>
                 <h2>{main.Name}</h2>
             </div>
-            <div className={styles.penalty__info}>
+            <div className={`${styles.penalty__info} ${styles.penalty__padding}`}>
                 {data.map(d => <Penalty key={uuid4()} data={d} />)}
             </div>
         </div>

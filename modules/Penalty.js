@@ -7,7 +7,7 @@ export default function Penalty({ data }) {
 
     return (
         <div className={`${styles.penalty} ${state ? styles.open : ''}`}>
-            <div>
+            <div className={styles.penalty__header}>
                 <div onClick={() => setState(!state)}>
                     <div>
                         <h2>{data.Name}</h2>
