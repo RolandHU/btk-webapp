@@ -1,0 +1,11 @@
+.penalty {
+    border: 1px solid black;
+}
+
+.penalty .penalty__info {
+    display: none;
+}
+
+.penalty.open .penalty__info {
+    display: block;
+}
