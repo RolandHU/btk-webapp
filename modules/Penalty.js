@@ -2,7 +2,7 @@ import { useState } from 'react'
 import PenaltyInfo from './PenaltyInfo'
 import styles from '../styles/Penalty.module.css'
 
-export default function Penalty({ data }) {
+export default function Penalty({ data, func }) {
     const [ state, setState ] = useState(false)
 
     return (
@@ -16,8 +16,8 @@ export default function Penalty({ data }) {
                         <p>{data.ID}</p>
                     </div>
                 </div>
-                <button>+</button>
-                <button>-</button>
+                <button onClick={() => func.addPenalty(data)}>+</button>
+                <button onClick={() => func.removePenalty(data)}>-</button>
             </div>
             <PenaltyInfo data={data} state={state} setState={setState} />
         </div>
