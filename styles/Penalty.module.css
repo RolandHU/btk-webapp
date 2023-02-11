@@ -1,12 +1,30 @@
 .main {
     display: flex;
-    flex-direction: column;
     gap: 20px;
 }
 
-.penalty__main {
-    width: min(1200px, 85vw);
-    margin: auto;
+.penalty__sidebar {
+    position: fixed;
+    width: min(600px, 40vw);
+    min-width: 300px;
+}
+
+.penalty__summary {
+    border: 1px solid black;
+}
+
+.penalty__summary__elem {
+    display: flex;
+}
+
+.penalty__container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    padding-inline: 20px;
+    margin-left: min(300px, 20vw);
 }
 
 .penalty {

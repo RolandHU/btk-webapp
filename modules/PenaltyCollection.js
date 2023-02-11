@@ -5,7 +5,7 @@ import styles from '../styles/Penalty.module.css'
 
 export default function PenaltyCollection({ title, data, func }) {
     return (
-        <div className={styles.penalty__main}>
+        <div className={styles.penalty__container}>
             <h1>{title}</h1>
             {data.map(d => {
                 if (Object.keys(d).includes('MinTicket') && !d.Paragraph.match(/\d+\.\d+/gm)) return <Penalty key={uuid4()} data={d} func={func} />

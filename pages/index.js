@@ -13,11 +13,6 @@ export default function Home({ data }) {
 
     function addPenalty(p) {
         setChosen([...chosen, p])
-        /*const data = chosen
-        if (Object.keys(data).includes(JSON.stringify(p))) data[JSON.stringify(p)] += 1
-        else data[JSON.stringify(p)] = 1
-        setChosen(data)
-        console.log(chosen)*/
     }
 
     function removePenalty(p) {
@@ -25,21 +20,25 @@ export default function Home({ data }) {
         if (data.indexOf(p) === -1) return
         data.splice(data.indexOf(p), 1)
         setChosen(data)
-        /*const data = chosen
-        if (!Object.keys(data).includes(JSON.stringify(p))) return
-        if (data[JSON.stringify(p)] === 1) delete data[JSON.stringify(p)]
-        else data[JSON.stringify(p)] -= 1
-        setChosen(data)
-        console.log(chosen)*/
+    }
+
+    function deletePenalty(p) {
+        const data = [...chosen]
+        if (data.indexOf(p) === -1) return
+        setChosen(data.filter(d => d !== p))
+    }
+
+    function resetPenalty() {
+        setChosen([])
     }
 
     return (
-        <>
-            <SideBar data={chosen} />
-            <div className={styles.main}>
+        <div className={styles.main}>
+            <SideBar data={chosen} func={{deletePenalty, resetPenalty}} />
+            <div className={styles.penalty__container}>
                 {Object.keys(data).map(c => <PenaltyCollection key={uuid4()} title={c} data={data[c]} func={{addPenalty, removePenalty}} />)}
             </div>
-        </>
+        </div>
     )
 }
 

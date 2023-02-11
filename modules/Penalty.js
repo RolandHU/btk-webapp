@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import PenaltyInfo from './PenaltyInfo'
 import styles from '../styles/Penalty.module.css'
 
